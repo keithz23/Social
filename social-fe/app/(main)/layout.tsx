@@ -27,7 +27,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useRouter,usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function MainLayout({
   children,
@@ -48,9 +48,9 @@ export default function MainLayout({
       },
     });
   };
-  
+
   const navItems = [
-    { icon: Home, label: "Home", href: "/", },
+    { icon: Home, label: "Home", href: "/" },
     { icon: Search, label: "Explore", href: "/explore" },
     { icon: Bell, label: "Notifications", href: "/notifications" },
     { icon: MessageCircle, label: "Chat", href: "/chat" },
@@ -137,7 +137,9 @@ export default function MainLayout({
 
           {/* Navigation Menu */}
           {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+            const isActive =
+              pathname === item.href ||
+              (item.href !== "/" && pathname.startsWith(item.href));
 
             return (
               <Link
